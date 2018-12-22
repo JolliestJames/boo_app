@@ -1,0 +1,3 @@
+rootProject.name = 'boo_app'
+
+include ':app'
