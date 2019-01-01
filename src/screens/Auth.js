@@ -8,11 +8,25 @@ export default class Auth extends Component {
     this.state = {
       showLogin: false
     };
+    this.whichForm = this.whichForm.bind(this);
+  }
+
+  whichForm() {
+    if (!this.state.showLogin) {
+      return(
+        <Registration />
+      );
+    } else {
+      return(
+        <Login />
+      );
+    }
   }
 
   render() {
     return(
       <View style={styles.container}>
+        {this.whichForm()}
       </View>
     );
   }
