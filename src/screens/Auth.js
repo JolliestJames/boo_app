@@ -9,16 +9,23 @@ export default class Auth extends Component {
       showLogin: false
     };
     this.whichForm = this.whichForm.bind(this);
+    this.authSwitch= this.authSwitch.bind(this);
+  }
+
+  authSwitch() {
+    this.setState({
+      showLogin: !this.state.showLogin
+    });
   }
 
   whichForm() {
     if (!this.state.showLogin) {
       return(
-        <Registration />
+        <Registration authSwitch={this.authSwitch}/>
       );
     } else {
       return(
-        <Login />
+        <Login authSwitch={this.authSwitch}/>
       );
     }
   }
