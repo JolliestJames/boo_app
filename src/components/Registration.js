@@ -19,7 +19,7 @@ class Registration extends Component {
     const {form, section, errorTextStyles} = styles;
 
     return(
-      <View styles={form}>
+      <View style={form}>
         <View style={section}>
           <Input
             placeholder="user@email.com"
