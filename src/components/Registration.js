@@ -52,6 +52,8 @@ class Registration extends Component {
         <Text style={errorTextStyles}>
           {error}
         </Text>
+
+        {!loading ? <Button>Register</Button> : <Loading size={'large'} />}
       </View>
     );
   }
