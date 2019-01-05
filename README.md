@@ -4,15 +4,22 @@ This [React Native](http://facebook.github.io/react-native/docs/getting-started.
 
 # Development
 
-To get started, install dependencies with the following commands:
+To get started, clone the repository:
+
+```
+git clone git@github.com:JolliestJames/boo_app.git
+```
+
+Install dependencies with the following commands:
 
 ```
 brew install node
 brew install watchman
 npm install -g react-native-cli
+npm install
 ```
 
-To run the app in an iOS simulator, run the following command:
+Run the app in an iOS simulator with the following command:
 
 ```
 react-native run-ios
