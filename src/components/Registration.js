@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {View, Text} from 'react-native';
 import {Input, TextLink, Button, Loading} from './common';
 
@@ -19,42 +19,48 @@ class Registration extends Component {
     const {form, section, errorTextStyles} = styles;
 
     return(
-      <View style={form}>
-        <View style={section}>
-          <Input
-            placeholder="user@email.com"
-            label="Email"
-            value={email}
-            onChangeText={email => this.setState({email})}
-          />
-        </View>
+      <Fragment>
+        <View style={form}>
+          <View style={section}>
+            <Input
+              placeholder="user@email.com"
+              label="Email"
+              value={email}
+              onChangeText={email => this.setState({email})}
+            />
+          </View>
 
-        <View style={section}>
+          <View style={section}>
+              <Input
+                secureTextEntry
+                placeHolder={"password"}
+                label="Password"
+                value={password}
+                onChangeText={password => this.setState({password})}
+              />
+          </View>
+
+          <View style={section}>
             <Input
               secureTextEntry
-              placeHolder={"password"}
-              label="Password"
-              value={password}
-              onChangeText={password => this.setState({password})}
+              placeholder="confirm password"
+              label="Confirm Password"
+              value={password_confirmation}
+              onChangeText={password_confirmation => this.setState({password_confirmation})}
             />
+          </View>
+
+          <Text style={errorTextStyles}>
+            {error}
+          </Text>
+
+          {!loading ? <Button>Register</Button> : <Loading size={'large'} />}
         </View>
 
-        <View style={section}>
-          <Input
-            secureTextEntry
-            placeholder="confirm password"
-            label="Confirm Password"
-            value={password_confirmation}
-            onChangeText={password_confirmation => this.setState({password_confirmation})}
-          />
-        </View>
-
-        <Text style={errorTextStyles}>
-          {error}
-        </Text>
-
-        {!loading ? <Button>Register</Button> : <Loading size={'large'} />}
-      </View>
+        <TextLink onPress={this.props.authSwitch}>
+          Log in
+        </TextLink>
+      </Fragment>
     );
   }
 }
